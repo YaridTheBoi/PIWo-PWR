@@ -67,7 +67,7 @@ html{
 }
 
 .menu-item{
-    color: var(--copy-green);
+    color: var(--dark-gray);
     font-size: var(--small-font-size);
     text-decoration: none;
 }
@@ -92,6 +92,8 @@ p {
 
 }
 
+
+
 i{
     padding: 0.5rem 0.5rem 0.5rem 0rem;
 }
@@ -108,16 +110,25 @@ i{
     color: var(--copy-orange);
 }
 
+.brown {
+    color: var(--brown);
+}
 .login-form{
     display: flex;
     justify-content: center;
     flex-direction: column;
     text-align: center;
+
+    padding: 10px;
 }
-.login-form h3{
+
+.blue-dots{
     background-image: url("./assets/dots\ hero\ section.svg");
     background-position: left;
+    background-repeat: no-repeat;
+    background-size:auto;
 }
+
 .login-form p{
     text-align: center;
 }
@@ -167,23 +178,26 @@ i{
 }
 
 input {
-    border: none;
-    width: 85%;
-    font-size: var(--medium-font-size);
+    
+    width: 100%;
+    font-size: var(--large-font-size);
     transition: var(--hover-transition);
+    border-radius: 4px;
+    border-color: #98A9FF;
+    padding: 1rem;
+    
 }
 
-input::placeholder {
-    color: var(--copy-green);
-    font-size: var(--medium-font-size);
-    opacity: 1 0;
+label{
+    font-size: var(--small-font-size);
 }
 
-input:focus{
-    border-bottom: 1px solid var(--primary-green);
-    outline: none;
-    font-size: var(--medium-font-size);
+.no-account{
+    display: flex;
+    justify-content: space-between;
+
 }
+
 
 
 button{
@@ -192,6 +206,7 @@ button{
     padding: 1rem 1.5rem;
     border-radius: var(--inner-radius);
     cursor: pointer;
+    
 }
 
 .primary-green {
@@ -225,6 +240,7 @@ button{
     flex-direction: column;
     row-gap: 2rem;
     justify-content: center;
+
 }
 
 .login-text > button {
