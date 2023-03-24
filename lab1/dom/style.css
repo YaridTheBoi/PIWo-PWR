@@ -41,6 +41,8 @@ html{
     column-gap: 20px;
 }
 
+
+
 .navbar{
     background-color: var(--white);
     padding: 1.5rem 100px;
@@ -126,7 +128,16 @@ i{
     background-image: url("./assets/dots\ hero\ section.svg");
     background-position: left;
     background-repeat: no-repeat;
+    background-size:auto ;
+   
+}
+
+.orange-dots{
+    background-image: url("./assets/dots\ about\ section.svg");
+    background-position: right;
+    background-repeat: no-repeat;
     background-size:auto;
+    text-align: center;
 }
 
 .login-form p{
@@ -180,7 +191,7 @@ i{
 input {
     
     width: 100%;
-    font-size: var(--large-font-size);
+    font-size: var(--normal-font-size);
     transition: var(--hover-transition);
     border-radius: 4px;
     border-color: #98A9FF;
@@ -235,13 +246,40 @@ button{
 }
 
 .login-text {
-    grid-column: 2/7;
+    grid-column: 2/6;
     display: flex;
     flex-direction: column;
     row-gap: 2rem;
     justify-content: center;
 
 }
+
+
+.about-text {
+    grid-column: 4/10;
+    display: flex;
+    flex-direction: column;
+    row-gap: 2rem;
+    justify-content: center;
+
+}
+
+.about-panels {
+    padding-top: 100px ;
+    padding-bottom: 100px;
+    grid-column: 1/13;
+    margin-top: 100px;
+    border-radius: 8px;
+    display: grid;
+    grid-template-columns: repeat(12,1fr);
+    grid-template-rows: repeat(2, 1fr);
+    column-gap: 20px;
+    row-gap: 20px;
+    
+    background-color: #FFF8E4;
+}
+
+
 
 .login-text > button {
     align-self: flex-start;
@@ -345,6 +383,18 @@ button{
     transition: var(--hover-transition);
 }
 
+.card:nth-of-type(1){
+    grid-area: 1/2/2/7;
+}
+.card:nth-of-type(2){
+    grid-area: 1/7/2/12;
+}
+.card:nth-of-type(3){
+    grid-area: 2/2/3/7;
+}
+.card:nth-of-type(4){
+    grid-area: 2/7/3/12;
+}
 
 .card[type="destination"]:nth-of-type(1) {
     grid-area: 2/1/4/5;
