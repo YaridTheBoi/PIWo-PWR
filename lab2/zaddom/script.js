@@ -1,4 +1,6 @@
 "use strict"
+let lastHidden;
+let toHide;
 const addTask = () => {
     const task = document.getElementById("task-input").value;
 
@@ -48,8 +50,35 @@ const finishTask = (event) => {
 
 };
 
-$("#xBtn").on('click', function(e){
-    $(this).hide();
 
 
+
+$(document).on("click", "#xBtn", function(){
+    toHide = $(this).parent();
+    $("#modal").show("slow");
+    $("#modal").off("click").click(() => {
+        $("#modal").hide("slow");
+    });
+
+});
+
+
+$(document).on("click", "#confirmRemove", function(){
+    if(toHide){
+        lastHidden=toHide;
+        toHide.hide();
+    };
+    
+
+});
+
+$(document).on("click", "#cancelRemove", function(){
+    $("#modal").hide("slow");
+
+});
+
+$(document).on("click", "#restore", function(){
+    if (lastHidden) {
+        lastHidden.show();
+    }
 });
