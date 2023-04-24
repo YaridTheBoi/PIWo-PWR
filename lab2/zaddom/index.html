@@ -19,7 +19,7 @@
             }
 
             #taskDiv{
-                background-color: rgb(203, 128, 236);
+                background-color: rgb(228, 225, 241);
                 display: flex;
                 flex-direction: row;
                 width: 100%;
@@ -27,6 +27,13 @@
                 padding: 1rem;
                 border-radius: 1rem;
                 font-weight: bold;
+                margin: 1rem;
+            }
+
+            #textSection{
+                display: flex;
+                flex-direction: row;
+                gap: 1rem;
             }
 
             
@@ -35,17 +42,17 @@
     <body >
 
         <div class="d-flex mx-auto flex-column w-25">
-            <div>
-                <label class="input-group-text" for="task-input">Task:</label>
+            <div class = "mb-2">
+                <h3 class = "text-center">Stwórz zadanie</h3>
                 <input class = "w-100" id="task-input"/>
             </div>
 
-            <button id="add" onclick="addTask()" class="btn btn-primary w-100">+</button>
-            <button id="restore" class="btn btn-warning w-100">Restore</button>
+            <button id="add" onclick="addTask()" class="btn btn-primary w-100">Dodaj zadanie</button>
+            <button id="restore" class="btn btn-warning w-100">Przywróć ostatnie zadanie</button>
 
         </div>
 
-        <div class=" mt-5 d-flex mx-auto flex-column w-75 align-items-center" id="tasks">
+        <div class=" mt-3 d-flex mx-auto flex-column w-75 align-items-center" id="tasks">
             <h2>Zadania do wykonania:</h2>
         </div>
 

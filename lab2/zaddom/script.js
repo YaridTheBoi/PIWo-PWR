@@ -14,6 +14,7 @@ const addTask = () => {
     taskDiv.id ="taskDiv";
 
     const textSection = document.createElement("div")
+    textSection.id ="textSection";
     const p = document.createElement("p");
     const xBtn = document.createElement("button");
 
