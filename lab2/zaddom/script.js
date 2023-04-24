@@ -12,15 +12,19 @@ const addTask = () => {
     }
     const taskDiv = document.createElement("div");
     taskDiv.id ="taskDiv";
+
+    const textSection = document.createElement("div")
     const p = document.createElement("p");
     const xBtn = document.createElement("button");
 
     p.innerHTML = `${task}`;
     p.addEventListener("click", finishTask,false);
-    taskDiv.append(p);
+    textSection.append(p)
+    taskDiv.append(textSection);
     
     xBtn.innerHTML = "X";
     xBtn.id = "xBtn";
+    xBtn.setAttribute("class", "btn btn-secondary");
     taskDiv.append(xBtn);
 
     tasks.append(taskDiv);
