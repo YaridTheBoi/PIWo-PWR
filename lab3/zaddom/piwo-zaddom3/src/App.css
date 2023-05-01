@@ -7,6 +7,39 @@
   pointer-events: none;
 }
 
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f8f9fa;
+  padding: 2rem 1rem;
+  margin-bottom: 1rem;
+}
+.navbar-brand {
+font-weight: bold;
+}
+
+.navbar-nav {
+display: flex;
+list-style: none;
+margin: 0;
+padding: 0;
+}
+
+.nav-item {
+margin-left: 20px;
+}
+
+.nav-link {
+color: #343a40;
+text-decoration: none;
+transition: color 0.2s ease-out;
+}
+
+.nav-link:hover {
+color: #17a2b8;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
