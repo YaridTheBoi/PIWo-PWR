@@ -20,7 +20,15 @@ const Login = () => {
     }, []);
 
     return(
-        <div></div>
+        <div>
+
+          <input placeholder='Login' ></input>
+
+          <input placeholder='Haslo' type="password" ></input>
+
+          <button>Login</button>
+
+        </div>
     );
 
 

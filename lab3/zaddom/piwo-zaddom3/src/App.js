@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import Main from './Pages/Main';
 import BookMeeting from './Pages/BookMeeting';
 import AddNew from './Pages/AddNew';
+import Login from './Pages/Login';
 import './App.css';
 
 function App() {
@@ -39,6 +40,9 @@ function App() {
             <li className="nav-item">
               <Link to='/addnew' className="nav-link">Add New</Link>
             </li>
+            <li className="nav-item">
+              <Link to='/login' className="nav-link">Login</Link>
+            </li>
           </ul>
         </nav>
 
@@ -46,6 +50,7 @@ function App() {
           <Route path='/' element={mainJSX}/>
           <Route path='/bookmeeting' element={<BookMeeting></BookMeeting>} />
           <Route path='/addnew' element={<AddNew setApartmentData={setApartmentData}></AddNew>} />
+          <Route path='/login' element={<Login></Login>} />
         </Routes>
       </BrowserRouter>
 
