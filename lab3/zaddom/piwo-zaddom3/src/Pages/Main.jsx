@@ -12,6 +12,7 @@ const Main = (props) =>
     const [bedroomQuery, setBedroomQuery] = useState("");
     const [descriptionQuery, setDescriptionQuery] = useState("");
 
+    console.log(apartmentList)
 
     const sortDefault = () =>{
         setApartmentList(props.apartmentData);

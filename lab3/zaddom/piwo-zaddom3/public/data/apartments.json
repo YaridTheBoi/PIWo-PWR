@@ -1,0 +1,42 @@
+[
+    {
+      "name":"Nazwa1", 
+      "description":"Opis1 Jedynka Jedyneczka One Ichi", 
+      "city":"Wrocław", 
+      "address":"Ignacego Chrzanowskiego 19/1", 
+      "bedrooms_amount":"1", 
+      "price":"500000",
+      "owner":"mail1@mail.com" 
+    },
+        
+    
+    {
+      "name":"Nazwa2", 
+      "description":"Opis2 Dwójka Dwójeczka Two Ni", 
+      "city":"Bydgoszcz", 
+      "address":"Podwale 12", 
+      "bedrooms_amount":"2", 
+      "price":"400000",
+      "owner":"mail2@mail.com" 
+    },
+    
+    {
+      "name":"Nazwa3", 
+      "description":"Opis3 Trójka Trójeczka Three San", 
+      "city":"Wadowice", 
+      "address":"Kościelna 3", 
+      "bedrooms_amount":"3", 
+      "price":"213700",
+      "owner":"mail3@mail.com" 
+    },
+    
+    {
+      "name":"Nazwa4", 
+      "description":"Opis4 Czwórka Czwóreczka Four Yon", 
+      "city":"Białystok", 
+      "address":"Szkolna 17", 
+      "bedrooms_amount":"4", 
+      "price":"1000000",
+      "owner":"mail4@mail.com" 
+    }
+]

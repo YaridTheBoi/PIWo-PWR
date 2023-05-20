@@ -1,0 +1,30 @@
+[
+    {
+        "name":"Imie1", 
+        "surname":"Nazwisko1",
+        "mail":"mail1@mail.com",
+        "password":"password1"
+    },
+        
+    
+    {
+        "name":"Imie2", 
+        "surname":"Nazwisko2",
+        "mail":"mail2@mail.com",
+        "password":"password2"
+    },
+    
+    {
+        "name":"Imie3", 
+        "surname":"Nazwisko3",
+        "mail":"mail3@mail.com",
+        "password":"password3"
+    },
+    
+    {
+        "name":"Imie4", 
+        "surname":"Nazwisko4",
+        "mail":"mail4@mail.com",
+        "password":"password4"
+    }
+]
