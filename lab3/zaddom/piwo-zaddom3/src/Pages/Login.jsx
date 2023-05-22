@@ -12,7 +12,7 @@ const Login = () => {
 
     const { setUser } = useContext(UserContext);
 
-
+    const [, dispatcher] = useContext(CartContext);
     useEffect(()=>{
 
       const fetchOptions = {
@@ -34,17 +34,17 @@ const Login = () => {
       const foundUser = usersData.find(user => user.mail === emailLogin && user.password === passwordLogin);
 
       if (foundUser){
-        console.log("Poprawnie zalogowano")
-        setUser(foundUser.name)
-        setEmailLogin("")
-        setPasswordLogin("")
-        navigate('/')
+        console.log("Poprawnie zalogowano");
+        setUser(foundUser.name);
+        dispatcher({type: "CLEAR_CART"});
+        setEmailLogin("");
+        setPasswordLogin("");
+        navigate('/');
       }else{
-        console.log("Niepoprawne dane logowania")
+        console.log("Niepoprawne dane logowania");
+        alert("Niepoprawne dane logowania");
       }
     };
-
-
   
     //console.log(user)
     return(
@@ -58,8 +58,6 @@ const Login = () => {
 
         </div>
     );
-
-
 
 };
 

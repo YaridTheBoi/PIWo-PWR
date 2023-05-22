@@ -24,7 +24,7 @@ const AddNew = (props) => {
             price:price };
 
         props.setApartmentData(x => [...x, newObject]);
-        navigate('/')
+        navigate('/');
 
     };
 
