@@ -23,3 +23,5 @@ yarn-debug.log*
 yarn-error.log*
 
 /Firebase/init.js
+
+init.js
