@@ -1,63 +1,75 @@
 import { useState, useEffect, useContext } from 'react';
+import { logInWithGoogle, logInWithGithub, useUser, logout, registerWithEmail, loginWithEmail, updateAfterMailLogin } from "../Firebase/AuthService";
 import UserContext from '../Data/UserContext';
 import { useNavigate } from 'react-router-dom';
+import { CartReducer, initialState, CartContext } from '../Data/CartReducer';
 const Login = () => {
 
 
     const navigate = useNavigate();
-
-    const [usersData, setUsersData] = useState([]);
-    const [emailLogin, setEmailLogin] = useState("");
-    const [passwordLogin, setPasswordLogin] = useState("");
-
     const { setUser } = useContext(UserContext);
-
     const [, dispatcher] = useContext(CartContext);
+
+    const [email, setEmail]= useState("")
+    const [password, setPassword]= useState("")
+    const user = useUser();
+
+
+    const handleRegister = () =>{
+        registerWithEmail(email, password);
+        setEmail("");
+        setPassword("");
+    }
+
+
+    const handleEmailLogin =async () =>{
+      await(loginWithEmail(email, password));
+      
+    }
+
+    const handleGithubLogin = async () =>{
+      await(logInWithGithub());
+
+    }
+
+    const handleGoogleLogin = async () =>{
+      await(logInWithGoogle());
+      
+    }
+
     useEffect(()=>{
-
-      const fetchOptions = {
-        method: "GET",
-        headers : {
-          Accept : "application/json",
-          "Content-Type" : "application/json;charset=UTF-8",
-        }
-      };
-
-      const promise = fetch("./data/users.json", fetchOptions);
-      promise.then(response => response.json()).then(content => {
-        setUsersData(content);
-      });
-    }, []);
-
-
-    const handleLogin = () =>{
-      const foundUser = usersData.find(user => user.mail === emailLogin && user.password === passwordLogin);
-
-      if (foundUser){
-        console.log("Poprawnie zalogowano");
-        setUser(foundUser.name);
-        dispatcher({type: "CLEAR_CART"});
-        setEmailLogin("");
-        setPasswordLogin("");
+      if (user!=null){
+        setUser(user.displayName);
         navigate('/');
       }else{
-        console.log("Niepoprawne dane logowania");
-        alert("Niepoprawne dane logowania");
+        setUser("");
       }
-    };
-  
-    //console.log(user)
-    return(
+      
+      
+
+    },[user])
+
+    if(user){
+        return (
+            <div>
+                <h2>You are logged in as {user.displayName}</h2>
+                <button onClick={logout}>Log me out</button>
+            </div>
+            );    
+    }
+    return (
         <div>
+            <h2>Please log in</h2>
 
-          <input placeholder='Email' value = {emailLogin} onChange={e => setEmailLogin(e.target.value) }></input>
-
-          <input placeholder='Haslo' value= {passwordLogin} onChange={e => setPasswordLogin(e.target.value)} type="password" ></input>
- 
-          <button onClick={handleLogin}>Login</button>
-
+            <input type="text" placeholder="email" value={email} onChange={e => setEmail(e.target.value)}></input>
+            <input type="password" placeholder="password" value={password} onChange={e => setPassword(e.target.value)}></input>
+            <button onClick={handleEmailLogin}>Login</button>
+            <button onClick={handleRegister}>Register</button>
+            <button onClick={handleGoogleLogin}>Login with Google</button>
+            <button onClick={handleGithubLogin}>Login with Github</button>
         </div>
     );
+    
 
 };
 

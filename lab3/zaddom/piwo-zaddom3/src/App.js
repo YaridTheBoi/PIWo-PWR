@@ -8,6 +8,7 @@ import Cart from './Pages/Cart'
 import './App.css';
 import UserContext from './Data/UserContext';
 import { CartReducer, initialState, CartContext } from './Data/CartReducer';
+import { logout } from './Firebase/AuthService';
 
 function App() {
 
@@ -31,11 +32,12 @@ function App() {
     });
   }, []);
 
-  const logout = () =>{
+
+  const handleLogout = () =>{
+    logout();
     setUser("");
     dispatcher({type: "CLEAR_CART"});
-  };
-
+  }
   //console.log(apartmentData);
 
   const [state, dispatcher] = useReducer(CartReducer, initialState );
@@ -64,7 +66,7 @@ function App() {
                 <div></div>
               }
               <li className="nav-item">
-                {user ? <b>Hello {user} <button onClick={logout}>Logout</button></b>: <Link to='/login' className="nav-link">Login</Link>}
+                {user ? <b>Hello {user} <button onClick={handleLogout}>Logout</button></b>: <Link to='/login' className="nav-link">Login</Link>}
               </li>
             </ul>
           </nav>
