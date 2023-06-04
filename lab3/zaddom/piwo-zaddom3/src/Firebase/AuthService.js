@@ -10,14 +10,19 @@ import {
     signOut,
     updateProfile
 } from "firebase/auth" ; 
+import { addUser, getUserName } from "./DataService";
 
 const googleProvider = new GoogleAuthProvider();
 const githubProvider = new GithubAuthProvider();
 
-export const registerWithEmail = async (mail, pass) => {
+export const registerWithEmail = async (mail, pass, name, surname) => {
     try{
-        await(createUserWithEmailAndPassword(auth, mail,pass));
-        await(logout);
+        await(createUserWithEmailAndPassword(auth, mail,pass)
+        .then((userCredential)=>{
+            console.log(userCredential.user.uid);
+            addUser(userCredential.user.uid,name, surname )
+        }));
+        
     } catch (err) {
         alert(err.message);
     }
@@ -25,8 +30,8 @@ export const registerWithEmail = async (mail, pass) => {
 
 export const loginWithEmail = async (mail, pass) => {
     try{
-        await(signInWithEmailAndPassword(auth, mail,pass));
-        await(updateAfterMailLogin)
+        await(signInWithEmailAndPassword(auth, mail,pass).then(updateAfterMailLogin));
+        //await(updateAfterMailLogin);
     } catch (err) {
         alert(err.message);
     }
@@ -34,7 +39,11 @@ export const loginWithEmail = async (mail, pass) => {
 
 export const updateAfterMailLogin = async () => {
     try{
-        await updateProfile(auth.currentUser, {displayName: "typek z maila"})
+      
+        const username = await (getUserName(auth.currentUser));
+        console.log(username);
+        await(updateProfile(auth.currentUser, {displayName: username}));
+
     } catch (err){
         alert(err.message)
     }
