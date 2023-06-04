@@ -26,7 +26,7 @@ const Login = () => {
   }
 
     const handleRegister = () =>{
-      if(password!=repeatPassword){
+      if(password!==repeatPassword){
         alert("Hasła nie są takie same");
       }
         registerWithEmail(email, password, name, surname);
