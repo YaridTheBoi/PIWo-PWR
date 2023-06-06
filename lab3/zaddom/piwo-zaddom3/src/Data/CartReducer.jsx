@@ -10,7 +10,7 @@ export const CartReducer = (state, action) => {
     switch (type) {
       case 'ADD_TO_CART':
         var index = state.items.findIndex(x => x == payload.name);
-        if (index === -1){
+        if (index == -1){
           state = {...state, items: [...state.items, payload.name] };
         };
         

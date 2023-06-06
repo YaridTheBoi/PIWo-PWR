@@ -1,5 +1,5 @@
 import { firestore } from "./init";
-import { collection, addDoc, Timestamp, query, where, getDocs } from "firebase/firestore";
+import { collection, addDoc, query, where, getDocs } from "firebase/firestore";
 
 export const addUser = async (userId, name, surname) => {
     try{
@@ -17,7 +17,7 @@ export const addUser = async (userId, name, surname) => {
 
 export const getUserName = async(user) => {
     const q = query(collection(firestore, 'users'), where ("uid", "==", user.uid));
-    console.log("szukame");
+    console.log("szukame");     //cheems
     let ret;
     try {
         const querySnapshot = await getDocs(q);
@@ -27,7 +27,7 @@ export const getUserName = async(user) => {
            
         });
     } catch (err){
-        console.log({err})
+        console.log({err});
 
     }
     return ret;

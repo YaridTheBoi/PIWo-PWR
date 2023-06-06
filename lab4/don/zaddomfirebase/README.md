@@ -1,3 +1,6 @@
+# UWAGA ZDZBANIŁEM SPRAWĘ
+W tym repo nie ma kodu do tego zadania. Znajduje się on w repo z zadaniem z zajęć wcześniejszych. Poprzednia wersja została odpowiednio otagowana.
+
 # URL
 https://piwo-zaddom259120.web.app
 

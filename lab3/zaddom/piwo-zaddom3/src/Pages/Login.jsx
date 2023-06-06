@@ -1,14 +1,11 @@
 import { useState, useEffect, useContext } from 'react';
-import { logInWithGoogle, logInWithGithub, useUser, logout, registerWithEmail, loginWithEmail, updateAfterMailLogin } from "../Firebase/AuthService";
+import { logInWithGoogle, logInWithGithub, useUser, logout, registerWithEmail, loginWithEmail } from "../Firebase/AuthService";
 import UserContext from '../Data/UserContext';
-import { useNavigate } from 'react-router-dom';
-import { CartReducer, initialState, CartContext } from '../Data/CartReducer';
+
+
 const Login = () => {
 
-
-    const navigate = useNavigate();
     const { setUser } = useContext(UserContext);
-    const [, dispatcher] = useContext(CartContext);
 
     const [email, setEmail]= useState("");
     const [password, setPassword]= useState("");
@@ -23,7 +20,7 @@ const Login = () => {
 
   const switchToRegister = () => {
     setIsRegiser(!isRegister);
-  }
+  };
 
     const handleRegister = () =>{
       if(password!==repeatPassword){
@@ -37,23 +34,21 @@ const Login = () => {
         setSurname("");
         setName("");
 
-    }
+    };
 
 
     const handleEmailLogin =async () =>{
       await(loginWithEmail(email, password));
       
-    }
+    };
 
     const handleGithubLogin = () =>{
       logInWithGithub();
-
-    }
+    };
 
     const handleGoogleLogin = () =>{
       logInWithGoogle();
-      
-    }
+    };
 
     useEffect(()=>{
       if (user!=null){
@@ -63,9 +58,7 @@ const Login = () => {
         setUser("");
       }
       
-      
-
-    },[user])
+    },[user]);
 
     if(user){
         return (
@@ -74,7 +67,7 @@ const Login = () => {
                 <button onClick={logout}>Wyloguj mnie</button>
             </div>
             );    
-    }
+    };
 
     if(isRegister){
       return (
@@ -90,7 +83,7 @@ const Login = () => {
 
         </div>
     );
-    }
+    };
 
     return (
         <div>

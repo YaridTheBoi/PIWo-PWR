@@ -1,5 +1,5 @@
 import {BrowserRouter, Link, Route, Routes} from 'react-router-dom'
-import { useContext, useEffect, useReducer, useState } from 'react';
+import { useEffect, useReducer, useState } from 'react';
 import Main from './Pages/Main';
 import BookMeeting from './Pages/BookMeeting';
 import AddNew from './Pages/AddNew';
@@ -84,6 +84,6 @@ function App() {
     </div>
    
   );
-}
+};
 
 export default App;

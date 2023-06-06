@@ -26,7 +26,7 @@ export const registerWithEmail = async (mail, pass, name, surname) => {
     } catch (err) {
         alert(err.message);
     }
-}
+};
 
 export const loginWithEmail = async (mail, pass) => {
     try{
@@ -35,7 +35,7 @@ export const loginWithEmail = async (mail, pass) => {
     } catch (err) {
         alert(err.message);
     }
-}
+};
 
 export const updateAfterMailLogin = async () => {
     try{
@@ -45,11 +45,11 @@ export const updateAfterMailLogin = async () => {
         await(updateProfile(auth.currentUser, {displayName: username}));
 
     } catch (err){
-        alert(err.message)
+        alert(err.message);
     }
-    
+};
 
-}
+
 export const logInWithGoogle = async () =>{
     try {
         await signInWithPopup (auth, googleProvider);
@@ -66,15 +66,13 @@ export const logInWithGithub = async () =>{
     } catch (err) {
     
         if (err.code === 'auth/account-exists-with-different-credential') {
-            alert("Istnieje użytkownik przypisany do tego email.")
+            alert("Istnieje użytkownik przypisany do tego email.");
         }
         else{
             console.error({err});
             alert(err.message);
         }
-
     }
-
 };
 
 export const useUser = () => {
